@@ -18,38 +18,78 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
             // Build message to reply back
-            if($text == "พี่นัทตี้")
-            { 
-                // $messages = [
-                // 'type' => 'text',
-                // 'text' => $text
-                // ];
-                $messages = [
-                'type' => 'text',
-                'text' => "มั่วรออะไรอยู่ ปรบมือสิ ปรบมือ!!!!"
-                ];
-            
-                // Make a POST Request to Messaging API to reply to sender
-                $url = 'https://api.line.me/v2/bot/message/reply';
-                $data = [
-                    'replyToken' => $replyToken,
-                    'messages' => [$messages],
-                ];
-                $post = json_encode($data);
-                $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-                $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                $result = curl_exec($ch);
-                curl_close($ch);
-
-                echo $result . "\r\n";
+            // $messages = [
+            // 'type' => 'text',
+            // 'text' => $text
+            // ];
+            $rand = rand(0,30);
+            if ($event['message']['text'] == "วงนอก"){
+                $text = "ตามหาวงนอกเหรอตะเอง";
+            }else if ($event['message']['text'] == "วงใน"){
+                $text = "วงนอกก็มา";   
+            }else if ($event['message']['text'] == "เบิ้ม"){
+                $text = "เบิ้มจะออกแล้วหรา";   
+            }else if ($event['message']['text'] == "ออด"){
+                $text = "คนที่หื่นๆอะหรา";   
+            }else if ($event['message']['text'] == "ออดหล่อ"){
+                $text = "ตรงไหน!!";   
+            }else if ($event['message']['text'] == "นัทตี้"){
+                $text = "จิ๊กขนมมาฝากบ้าง";   
+            }else if ($event['message']['text'] == "จอม"){
+                $text = "ใครอะ ไม่เห็นรู้จัก";
+            }else if ($event['message']['text'] == "แอ้"  || $event['message']['text'] == "aae" || $event['message']['text'] == "อ้อแอ้"|| $event['message']['text'] == "Aae"){
+                $text = "ใครอ่ะไม่เห็นจะ สวยเลย";
+            }else if ($rand == 1){
+                $text = "จิงเดะ!!";
+            }else if ($rand == 2){
+                $text = "ว้าววว!!";
+            }else if ($rand == 3){
+                $text = "ไม่จิงอะ";
+            }else if ($rand == 4){
+                $text = "ฮะ";
+            }else if ($rand == 5){
+                $text = "ตะมุตะมิ";
+            }else if ($rand == 6){
+                $text = "สาสสส!!";
+            }else if ($rand == 7){
+                $text = "แย่จัง";
+            }else if ($rand == 8){
+                $text = "แม่นแหล่วว";
+            }else if ($rand == 9){
+                $text = "ช่ะมะๆ";
+            }else if ($rand == 10){
+                $text = "เมพมาก";
+            }else if ($rand == 11){
+                $text = "กะดะ";
+            }else if ($rand == 12){
+                $text = "ตลกตายหล่ะ";
+            }else{
+                exit;
             }
-			
+            $messages = [
+            'type' => 'text',
+            'text' => $text
+            ];
+        
+            // Make a POST Request to Messaging API to reply to sender
+            $url = 'https://api.line.me/v2/bot/message/reply';
+            $data = [
+                'replyToken' => $replyToken,
+                'messages' => [$messages],
+            ];
+            $post = json_encode($data);
+            $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            $result = curl_exec($ch);
+            curl_close($ch);
+
+            echo $result . "\r\n";
 		}
 	}
 }
