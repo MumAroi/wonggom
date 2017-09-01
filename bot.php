@@ -39,6 +39,8 @@ if (!is_null($events['events'])) {
                 $text = "ใครอะ ไม่เห็นรู้จัก";
             }else if ($event['message']['text'] == "แอ้"  || $event['message']['text'] == "aae" || $event['message']['text'] == "อ้อแอ้"|| $event['message']['text'] == "Aae"){
                 $text = "ใครอ่ะไม่เห็นจะ สวยเลย";
+            }else if ($event['message']['text'] == "จ้าก"){
+                $text = "ไม่น่าเกิดมา";
             }else if ($rand == 1){
                 $text = "จิงเดะ!!";
             }else if ($rand == 2){
