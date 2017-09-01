@@ -15,5 +15,5 @@ curl_close($ch);
 
 echo $result;
 
-echo "I am a bot naja";
+// echo "I am a bot naja";
 ?>
