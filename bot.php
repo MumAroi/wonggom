@@ -20,9 +20,13 @@ if (!is_null($events['events'])) {
             // Build message to reply back
             if($text == "พี่นัทตี้")
             { 
+                // $messages = [
+                // 'type' => 'text',
+                // 'text' => $text
+                // ];
                 $messages = [
                 'type' => 'text',
-                'text' => $text
+                'text' => "มั่วรออะไรอยู่ ปรบมือสิ ปรบมือ!!!!"
                 ];
             
                 // Make a POST Request to Messaging API to reply to sender
