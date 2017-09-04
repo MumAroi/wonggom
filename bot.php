@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
             // 'type' => 'text',
             // 'text' => $text
             // ];
-            $rand = rand(0,30);
+            $rand = rand(0,70);
             if ($event['message']['text'] == "วงนอก"){
                 $text = "ตามหาวงนอกเหรอตะเอง";
             }else if ($event['message']['text'] == "วงใน"){
